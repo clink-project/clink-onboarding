@@ -1,9 +1,15 @@
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import CodeBlock from "./CodeBlock";
+import DropArea from "./DropArea";
+
 export default function Home() {
   return (
-    <>
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-        <p className="text-white">Hello, World!</p>
-      </main>
-    </>
+    <DndProvider backend={HTML5Backend}>
+      <div className="App">
+        <DropArea />
+        <CodeBlock id="1" left={0} top={0} isOriginal={true} />
+      </div>
+    </DndProvider>
   );
 }
